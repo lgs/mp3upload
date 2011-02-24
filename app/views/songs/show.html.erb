@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_tag @song.song.url(@song) %>
+<%= link_to "#{song_path}", song_path(@song) %>
 
 <%= link_to 'Edit', edit_song_path(@song) %> |
 <%= link_to 'Back', songs_path %>
