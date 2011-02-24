@@ -36,7 +36,11 @@ module Mp3upload
     # config.i18n.default_locale = :de
 
     # JavaScript files you want as :defaults (application.js is always included).
-    config.action_view.javascript_expansions[:defaults] = %w()
+    # config.action_view.javascript_expansions[:defaults] = %w()
+    # solve the err.: "No expansion found for :defaults" 
+    # (see http://ashenfelter.com/2011/02/09/fix-for-no-expansion-found-for-defaults-error-in-rails-3-0-4/)
+    config.action_view.javascript_expansions[:defaults] = %w(rails)
+
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"

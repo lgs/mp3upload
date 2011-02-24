@@ -39,19 +39,38 @@ class SongsController < ApplicationController
 
   # POST /songs
   # POST /songs.xml
+  #================
   def create
-    @song = Song.new(params[:song])
-
-    respond_to do |format|
-      if @song.save
-        format.html { redirect_to(@song, :notice => 'Song was successfully created.') }
-        format.xml  { render :xml => @song, :status => :created, :location => @song }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @song.errors, :status => :unprocessable_entity }
-      end
+    @song = Song.new(:song => params[:file])
+    if @song.save
+      head 200
+    else
+      render :action => "new"
     end
+    #
+    #@asset = Asset.new(:asset => params[:file])
+    #if @asset.save
+    #  head 200
+    #else
+    #  render :action => "new"
+    #end
   end
+  #================
+  # ORIG:
+  #================
+  #def create
+  #  @song = Song.new(params[:song])
+
+  #  respond_to do |format|
+  #    if @song.save
+  #      format.html { redirect_to(@song, :notice => 'Song was successfully created.') }
+  #      format.xml  { render :xml => @song, :status => :created, :location => @song }
+  #    else
+  #      format.html { render :action => "new" }
+  #      format.xml  { render :xml => @song.errors, :status => :unprocessable_entity }
+  #    end
+  #  end
+  #end
 
   # PUT /songs/1
   # PUT /songs/1.xml
