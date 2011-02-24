@@ -1,8 +1,21 @@
-<div>
+<!-- div>
   <div id="filelist"></div>
   <br />
   <a id="pickfiles" href="#">[Select files]</a>
   <a id="uploadfiles" href="#">[Upload files]</a>
+</div -->
+
+<div>
+  <div id="filelist"></div>
+  <br />
+  <%= form_tag songs_path, :id => 'new_song', :multipart => true do %>
+    <p><a id="pickfiles" href="#"><%= file_field_tag "Filedata" %></a></p>
+    <p><a id="uploadfiles" href="#"><%= submit_tag "upload", :id => "new_song_submit" %></a></p>
+
+    <div id="new_song_status"></div>
+  <% end %>
+  <!-- ul id="swfupload-playlist" class="playlist">
+  </uli -->
 </div>
 
 <script type="text/javascript">
