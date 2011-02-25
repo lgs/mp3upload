@@ -1,0 +1,10 @@
+
+ heroku config:add S3_KEY_ID=1NFZXSPRJV9SEAX1DJ82
+ heroku config:add S3_SECRET_KEY=bZnXN2fK0sFM//a8/Gcn3lnKXXgj5CIPjvyTJuhn
+ heroku config:add S3_BUCKET=soundcloud-mp3upload
+
+ export S3_KEY_ID=1NFZXSPRJV9SEAX1DJ82
+ export S3_SECRET_KEY=bZnXN2fK0sFM//a8/Gcn3lnKXXgj5CIPjvyTJuhn
+ export S3_BUCKET=soundcloud-mp3upload
+
+
