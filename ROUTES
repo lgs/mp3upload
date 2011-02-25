@@ -1,0 +1,9 @@
+
+    songs GET    /songs(.:format)          {:action=>"index", :controller=>"songs"}
+          POST   /songs(.:format)          {:action=>"create", :controller=>"songs"}
+ new_song GET    /songs/new(.:format)      {:action=>"new", :controller=>"songs"}
+edit_song GET    /songs/:id/edit(.:format) {:action=>"edit", :controller=>"songs"}
+     song GET    /songs/:id(.:format)      {:action=>"show", :controller=>"songs"}
+          PUT    /songs/:id(.:format)      {:action=>"update", :controller=>"songs"}
+          DELETE /songs/:id(.:format)      {:action=>"destroy", :controller=>"songs"}
+     root        /(.:format)               {:controller=>"songs", :action=>"index"}
