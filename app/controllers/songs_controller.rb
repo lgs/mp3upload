@@ -17,9 +17,10 @@ class SongsController < ApplicationController
   end
 
   def create
-    @song = Song.new(:song => params[:file])
+    @song = Song.new(:song => params[:song], :title => params[:title])
     if @song.save
-      head 200
+      #head 200
+      redirect_to(@song)
     else
       render :action => "new"
     end
