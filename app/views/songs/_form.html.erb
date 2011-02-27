@@ -1,14 +1,11 @@
 
 <div id="filelist"></div>
 <br />
-<!-- div>
-  < %= form_tag songs_path, :multipart => true do %>
-    <p>< %= label_tag :title %></p>
-    <p>< %= text_field_tag :title %></p>
+
+<!-- 
     <p><a id="pickfiles" href="#">< %= file_field_tag "file" %></a></p>
     <p><a id="uploadfiles" href="#">< %= submit_tag "upload" %></a></p>
-  < % end %>
-</div -->
+-->
 
 <%= form_for(@song, :html => { :multipart => true }) do |f| %>
   <% if @song.errors.any? %>
@@ -27,12 +24,12 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
+  <div class="field" id="pickfiles" href="#">
     <%= f.label :song %>
     <%= f.file_field :song %>
     <%= f.hidden_field :song_cache %>
   </div>
-  <div class="actions">
+  <div class="actions" id="uploadfiles" href="#">
     <%= f.submit %>
     or
     <%= link_to 'Cancel', @song %>
