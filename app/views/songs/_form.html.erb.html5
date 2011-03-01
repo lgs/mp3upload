@@ -1,0 +1,73 @@
+
+<div id="filelist"></div>
+<br />
+
+<!-- 
+    <p><a id="pickfiles" href="#">< %= file_field_tag "file" %></a></p>
+    <p><a id="uploadfiles" href="#">< %= submit_tag "upload" %></a></p>
+-->
+
+<%= form_for(@song, :html => { :multipart => true }) do |f| %>
+  <% if @song.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
+
+      <ul>
+      <% @song.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field" id="pickfiles" href="#">
+    <%= f.label :song %>
+    <%= f.file_field :song %>
+    <%= f.hidden_field :song_cache %>
+  </div>
+  <div class="actions" id="uploadfiles" href="#">
+    <%= f.submit %>
+    or
+    <%= link_to 'Cancel', @song %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+$(function(){
+  var uploader = new plupload.Uploader({
+    runtimes : "html5",
+    browse_button : 'pickfiles',
+    max_file_size : '10mb',
+    url : "/songs",
+    multipart: true,
+    multipart_params: {
+     "authenticity_token" : '<%= form_authenticity_token %>'
+    }
+  });
+
+  uploader.bind('FilesAdded', function(up, files) {
+    $.each(files, function(i, file) {
+      $('#filelist').append(
+        '<div id="' + file.id + '">' +
+        'File: ' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b>' +
+        '</div>'
+        );
+      });
+    });
+
+  uploader.bind('UploadProgress', function(up, file) {
+    $('#' + file.id + " b").html(file.percent + "%");
+  });
+
+  $('#uploadfiles').click(function(e) {
+    uploader.start();
+    e.preventDefault();
+  });
+
+  uploader.init();
+});
+</script>

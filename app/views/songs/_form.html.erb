@@ -7,7 +7,7 @@
     <p><a id="uploadfiles" href="#">< %= submit_tag "upload" %></a></p>
 -->
 
-<%= form_for(@song, :html => { :multipart => true }) do |f| %>
+<%= form_for @song, :as => :song, :multipart => true, :remote => true do |f| %>
   <% if @song.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
@@ -20,14 +20,14 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field" id="title" href="#">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div class="field" id="pickfiles" href="#">
-    <%= f.label :song %>
-    <%= f.file_field :song %>
-    <%= f.hidden_field :song_cache %>
+    <%= f.label :file %>
+    <%= f.file_field :file %>
+    <%= f.hidden_field :file_cache %>
   </div>
   <div class="actions" id="uploadfiles" href="#">
     <%= f.submit %>
@@ -45,6 +45,7 @@ $(function(){
     url : "/songs",
     multipart: true,
     multipart_params: {
+     "title" : '<%= text_field :title, :class => :field, :id => :title %>',
      "authenticity_token" : '<%= form_authenticity_token %>'
     }
   });

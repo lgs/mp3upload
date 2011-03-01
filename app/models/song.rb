@@ -6,6 +6,6 @@ class Song
 
   field :title
 
-  mount_uploader :song, SongUploader
+  mount_uploader :file, FileUploader
 end
 
