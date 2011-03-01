@@ -39,10 +39,17 @@ $(function(){
     url : "/songs",
     multipart: true,
     multipart_params: {
-     "title" : $('#title').val()
+     /*"title" : $('#title').val() */
+     /*"title" : '<%= text_field :title, :class => "field", :id => "song_title" %>'*/
+     "title" : '<input id="song_title" name="song[title]" size="30" type="text" />'
      "authenticity_token" : '<%= form_authenticity_token %>'
     }
+   /* $.extend(up.settings.multipart_params, { title : $('#title').val() }); */
   });
+  
+  /*uploader.bind('BeforeUpload', function(up, files) {
+    $.extend(up.settings.multipart_params, { title : $('#title').val() }); 
+  });*/
 
   uploader.bind('FilesAdded', function(up, files) {
     $.each(files, function(i, file) {
