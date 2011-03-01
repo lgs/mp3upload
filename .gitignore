@@ -1,4 +1,6 @@
+config/initializers/carrierwave-on-s3.rb
 README.S3.settings
+RESOURCES
 .bundle
 db/*.sqlite3
 log/*.log
