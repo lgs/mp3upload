@@ -1,11 +1,5 @@
-
 <div id="filelist"></div>
 <br />
-
-<!-- 
-    <p><a id="pickfiles" href="#">< %= file_field_tag "file" %></a></p>
-    <p><a id="uploadfiles" href="#">< %= submit_tag "upload" %></a></p>
--->
 
 <%= form_for @song, :as => :song, :multipart => true, :remote => true do |f| %>
   <% if @song.errors.any? %>
@@ -20,7 +14,7 @@
     </div>
   <% end %>
 
-  <div class="field" id="title" href="#">
+  <div class="field" id="title">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
@@ -45,7 +39,7 @@ $(function(){
     url : "/songs",
     multipart: true,
     multipart_params: {
-     "title" : '<%= text_field :title, :class => :field, :id => :title %>',
+     "title" : $('#title').val()
      "authenticity_token" : '<%= form_authenticity_token %>'
     }
   });
@@ -57,8 +51,8 @@ $(function(){
         'File: ' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b>' +
         '</div>'
         );
-      });
     });
+  });
 
   uploader.bind('UploadProgress', function(up, file) {
     $('#' + file.id + " b").html(file.percent + "%");
