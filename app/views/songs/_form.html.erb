@@ -26,9 +26,11 @@
   <div class="actions" id="uploadfiles" href="#">
     <%= f.submit %>
     or
-    <%= link_to 'Cancel', @song %>
+    <%= link_to 'Cancel', @songs  %>
   </div>
 <% end %>
+
+<%= render 'snippets' %>
 
 <script type="text/javascript">
 $(function(){
@@ -42,7 +44,7 @@ $(function(){
     url : "/songs",
     multipart: true,
     multipart_params: {
-    "title" : song_title
+/* commented for heroku only    "title" : song_title
      /*"title" : $('#title').val() */
      /*"title" : '<%= text_field :title, :class => "field", :id => "song_title" %>'*/
      /*"title" : '<input id="song_title" name="song[title]" size="30" type="text" />'*/

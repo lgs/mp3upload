@@ -2,22 +2,10 @@
 
 <table>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th><%= render 'snippets' %></th>
   </tr>
-
-<% @songs.each do |song| %>
-  <tr>
-    <td><%= "#{song}" %></td>
-    <td><%= link_to 'Show', song %></td>
-    <td><%= link_to 'Edit', edit_song_path(song) %></td>
-    <td><%= link_to 'Destroy', song, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
 </table>
 
 <br />
-
 <%= link_to 'New Song', new_song_path %>
 
