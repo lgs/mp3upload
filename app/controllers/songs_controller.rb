@@ -4,8 +4,8 @@ class SongsController < ApplicationController
   end
 
   def show
-    @song = Song.find(params[:id])
-    #@song = Song.criteria.id("#{params[:id]}")
+    #@song = Song.find(params[:id])
+    redirect_to root_path
   end
 
   def new

@@ -1,0 +1,5 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to "#{song.file.url}", song.file.url %>
+
+<%= link_to 'Back', songs_path %>
