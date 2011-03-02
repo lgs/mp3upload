@@ -32,6 +32,9 @@
 
 <script type="text/javascript">
 $(function(){
+  /*<input id="song_file" name="song[file]" type="file" />*/
+  var song_title = $("input[name=song_title]").val();
+  /*var atoken = $("input[name=authenticity_token]").val();*/
   var uploader = new plupload.Uploader({
     runtimes : "html5",
     browse_button : 'pickfiles',
@@ -39,11 +42,13 @@ $(function(){
     url : "/songs",
     multipart: true,
     multipart_params: {
+    "title" : song_title
      /*"title" : $('#title').val() */
      /*"title" : '<%= text_field :title, :class => "field", :id => "song_title" %>'*/
      /*"title" : '<input id="song_title" name="song[title]" size="30" type="text" />'*/
      "authenticity_token" : '<%= form_authenticity_token %>'
     }
+
    /* $.extend(up.settings.multipart_params, { title : $('#title').val() }); */
   });
   
