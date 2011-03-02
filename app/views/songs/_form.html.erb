@@ -21,7 +21,7 @@
   <div class="field" id="pickfiles" href="#">
     <%= f.label :file %>
     <%= f.file_field :file %>
-    <%= f.hidden_field :file_cache %>
+    <!-- %= f.hidden_field :file_cache % -->
   </div>
   <div class="actions" id="uploadfiles" href="#">
     <%= f.submit %>
@@ -41,14 +41,14 @@ $(function(){
     multipart_params: {
      /*"title" : $('#title').val() */
      /*"title" : '<%= text_field :title, :class => "field", :id => "song_title" %>'*/
-     "title" : '<input id="song_title" name="song[title]" size="30" type="text" />'
+     /*"title" : '<input id="song_title" name="song[title]" size="30" type="text" />'*/
      "authenticity_token" : '<%= form_authenticity_token %>'
     }
    /* $.extend(up.settings.multipart_params, { title : $('#title').val() }); */
   });
   
   /*uploader.bind('BeforeUpload', function(up, files) {
-    $.extend(up.settings.multipart_params, { title : $('#title').val() }); 
+    $.extend(up.settings.multipart_params, { title : $('#song_title').val() }); 
   });*/
 
   uploader.bind('FilesAdded', function(up, files) {
