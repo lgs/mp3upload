@@ -1,4 +1,7 @@
 Mp3upload::Application.configure do
+
+  config.middleware.use Rack::Static, :urls => ['/uploads'], :root => 'tmp'
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # The production environment is meant for finished, "live" apps.
