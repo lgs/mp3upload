@@ -1,0 +1,37 @@
+
+
+* Solve the Parameters Exchange Error between js / Rails form_for / mongoid 
+
+== in app/views/songs/_form.html.erb
+
+<%= form_tag songs_path :multipart => true, :remote => true do %>
+  <div class="field" id="title">
+    <%= label_tag :title %>
+    <%= text_field_tag :title %>
+  </div>
+  <div class="field" id="pickfiles" href="#">
+    <%= label_tag :file %>
+    <%= file_field_tag :file %>
+    <!-- %= f.hidden_field :file_cache % -->
+  </div>
+  <div class="actions" id="uploadfiles" href="#">
+    <%= submit_tag %>
+    or
+    <%= link_to 'Cancel', @song %>
+  </div>
+<% end %>
+
+== in rails log :
+
+Started POST "/songs?multipart=true&remote=true" for 127.0.0.1 at 2011-03-05 15:45:00 +0100
+  Processing by SongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oVEb1PgfSFQukGXxe+vojVPxp3kCMbjJOGb5yIFGo+I=", "title"=>"prova", "file"=>"09 Amen Omen.mp3", "commit"=>"Save changes", "multipart"=>"true", "remote"=>"true"}
+MONGODB mp3upload_development['songs'].insert([{"title"=>"prova", "_id"=>BSON::ObjectId('4d724c6c1d41c83314000004'), "updated_at"=>2011-03-05 14:45:00 UTC, "created_at"=>2011-03-05 14:45:00 UTC}])
+Completed 200 OK in 43ms
+
+== in mongo shell:
+
+> db.songs.find()
+{ "_id" : ObjectId("4d724c6c1d41c83314000004"), "title" : "prova", "updated_at" : "Sat Mar 05 2011 15:45:00 GMT+0100 (CET)", "created_at" : "Sat Mar 05 2011 15:45:00 GMT+0100 (CET)" }
+> 
+

@@ -1,30 +1,18 @@
 <div id="filelist"></div>
 <br />
 
-<%= form_for @song, :as => :song, :multipart => true, :remote => true do |f| %>
-  <% if @song.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
-
-      <ul>
-      <% @song.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_tag songs_path :multipart => true, :remote => true do %>
   <div class="field" id="title">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= label_tag :title %>
+    <%= text_field_tag :title %>
   </div>
   <div class="field" id="pickfiles" href="#">
-    <%= f.label :file %>
-    <%= f.file_field :file %>
+    <%= label_tag :file %>
+    <%= file_field_tag :file %>
     <!-- %= f.hidden_field :file_cache % -->
   </div>
   <div class="actions" id="uploadfiles" href="#">
-    <%= f.submit %>
+    <%= submit_tag %>
     or
     <%= link_to 'Cancel', @song %>
   </div>
