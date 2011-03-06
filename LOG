@@ -1,8 +1,29 @@
 
+THIS WORKS:
+===========
 Started POST "/songs" for 127.0.0.1 at 2011-03-07 00:15:00 +0100
   Processing by SongsController#create as HTML
   Parameters: {"name"=>"09 Amen Omen.mp3", "authenticity_token"=>"oVEb1PgfSFQukGXxe+vojVPxp3kCMbjJOGb5yIFGo+I=", "title"=>"My preferred ", "file"=>#<ActionDispatch::Http::UploadedFile:0xc56b650 @original_filename="09 Amen Omen.mp3", @content_type="audio/mpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"09 Amen Omen.mp3\"\r\nContent-Type: audio/mpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110307-9689-1dbql8u>>}
 MONGODB mp3upload_development['songs'].insert([{"title"=>"My preferred ", "_id"=>BSON::ObjectId('4d7415741d41c825d9000004'), "updated_at"=>2011-03-06 23:15:01 UTC, "file_filename"=>"09_amen_omen.mp3", "created_at"=>2011-03-06 23:15:01 UTC}])
 Redirected to http://localhost:3000/songs
 Completed 302 Found in 74ms
+
+THESE DIDN'T WORK:
+=================
+<form accept-charset="UTF-8" action="/songs" enctype="multipart/form-data" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="oVEb1PgfSFQukGXxe+vojVPxp3kCMbjJOGb5yIFGo+I=" /></div>
+
+Started POST "/songs" for 127.0.0.1 at 2011-03-06 19:21:54 +0100
+  Processing by SongsController#create as HTML
+  Parameters: {"name"=>"09 Amen Omen.mp3", "authenticity_token"=>"oVEb1PgfSFQukGXxe+vojVPxp3kCMbjJOGb5yIFGo+I=", "file"=>#<ActionDispatch::Http::UploadedFile:0xb6e1a418 @original_filename="09 Amen Omen.mp3", @content_type="audio/mpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"09 Amen Omen.mp3\"\r\nContent-Type: audio/mpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110306-5964-1fclu4o>>}
+MONGODB mp3upload_development['songs'].insert([{"title"=>nil, "_id"=>BSON::ObjectId('4d73d0c21d41c8174c000004'), "updated_at"=>2011-03-06 18:21:54 UTC, "file_filename"=>"09_amen_omen.mp3", "created_at"=>2011-03-06 18:21:54 UTC}])
+Completed 200 OK in 84ms
+
+<form accept-charset="UTF-8" action="/songs" enctype="multipart/form-data" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="oVEb1PgfSFQukGXxe+vojVPxp3kCMbjJOGb5yIFGo+I=" /></div>
+
+Started POST "/songs" for 127.0.0.1 at 2011-03-06 19:26:01 +0100
+  Processing by SongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oVEb1PgfSFQukGXxe+vojVPxp3kCMbjJOGb5yIFGo+I=", "title"=>"prova", "file"=>#<ActionDispatch::Http::UploadedFile:0xb6df23c8 @original_filename="01 With My Own Two Hands.mp3", @content_type="audio/mpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01 With My Own Two Hands.mp3\"\r\nContent-Type: audio/mpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110306-5964-11ebkwm>>, "commit"=>"Save changes"}
+MONGODB mp3upload_development['songs'].insert([{"title"=>"prova", "_id"=>BSON::ObjectId('4d73d1b91d41c8174c000007'), "updated_at"=>2011-03-06 18:26:01 UTC, "file_filename"=>"01_with_my_own_two_hands.mp3", "created_at"=>2011-03-06 18:26:01 UTC}])
+Completed 200 OK in 59ms
+
 
