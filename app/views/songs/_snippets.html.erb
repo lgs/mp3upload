@@ -1,10 +1,8 @@
-
-
 <% if @songs  %>
    <% @songs.each do |song| %>
      <tr>
+       <!-- td>< %= link_to "#{song.file.current_path}", song.file.current_path %></td -->
        <td><%= link_to "#{song.file.url}", song.file.url %></td>
-       <!-- td>< %= link_to 'Show', song %></tdi -->
        <!-- td>< %= link_to 'Edit', edit_song_path(song) %></tdi -->
        <td><%= link_to 'Destroy', song, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>

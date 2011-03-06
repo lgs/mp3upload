@@ -1,4 +1,5 @@
-if ENV['MONGOHQ_URL']
+#if ENV['MONGOHQ_URL']
+if Rails.env.production?
   CarrierWave.configure do |config|
     config.storage = :grid_fs
     uri = URI.parse(ENV['MONGOHQ_URL'])
