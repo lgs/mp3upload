@@ -1,0 +1,8 @@
+
+Started POST "/songs" for 127.0.0.1 at 2011-03-07 00:15:00 +0100
+  Processing by SongsController#create as HTML
+  Parameters: {"name"=>"09 Amen Omen.mp3", "authenticity_token"=>"oVEb1PgfSFQukGXxe+vojVPxp3kCMbjJOGb5yIFGo+I=", "title"=>"My preferred ", "file"=>#<ActionDispatch::Http::UploadedFile:0xc56b650 @original_filename="09 Amen Omen.mp3", @content_type="audio/mpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"09 Amen Omen.mp3\"\r\nContent-Type: audio/mpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110307-9689-1dbql8u>>}
+MONGODB mp3upload_development['songs'].insert([{"title"=>"My preferred ", "_id"=>BSON::ObjectId('4d7415741d41c825d9000004'), "updated_at"=>2011-03-06 23:15:01 UTC, "file_filename"=>"09_amen_omen.mp3", "created_at"=>2011-03-06 23:15:01 UTC}])
+Redirected to http://localhost:3000/songs
+Completed 302 Found in 74ms
+

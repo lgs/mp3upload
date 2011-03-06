@@ -19,7 +19,8 @@ class SongsController < ApplicationController
     @song = Song.new(:title => params[:title])
     @song.file = params[:file]
     if @song.save
-      head 200
+      redirect_to(songs_url)
+      #head 200
     else
       render :action => "new"
     end
