@@ -1,7 +1,7 @@
 <div id="filelist"></div>
 <br />
 
-<%= form_tag songs_path :multipart => true, :remote => true do %>
+<%= form_tag @song, :multipart => true do %>
   <div class="field" id="title">
     <%= label_tag :title %>
     <%= text_field_tag :title %>
@@ -30,21 +30,11 @@ $(function(){
     url : "/songs",
     multipart: true,
     multipart_params: {
-/* commented for heroku only    "title" : song_title*/
-     /*"title" : $('#title').val() */
-     /*<input id="song_title" name="song[title]" size="30" type="text" />*/
-     /*"song[title]" : '<%= text_field :title, :id => "song_title", :size => "30", :type => "text" %>',*/
-     /*"title" : '<input id="song_title" name="song[title]" size="30" type="text" />'*/
-     /*"params[:title]" : '<%= text_field :title, :id => "song_title" %>'*/
-     "params[:title]" : song_title
+     "title" : song_title
      "authenticity_token" : '<%= form_authenticity_token %>'
     }
   });
   
-  /*uploader.bind('BeforeUpload', function(up, files) {
-    $.extend(up.settings.multipart_params, { title : $('#song_title').val() }); 
-  });*/
-
   uploader.bind('FilesAdded', function(up, files) {
     $.each(files, function(i, file) {
       $('#filelist').append(

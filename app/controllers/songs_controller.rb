@@ -4,7 +4,6 @@ class SongsController < ApplicationController
   end
 
   def show
-    #@song = Song.find(params[:id])
     redirect_to root_path
   end
 
@@ -17,7 +16,6 @@ class SongsController < ApplicationController
   end
 
   def create
-    #@song = Song.new(:title => params[:title], :file => params[:file])
     @song = Song.new(:title => params[:title])
     @song.file = params[:file]
     if @song.save
