@@ -1,11 +1,19 @@
 <% if @songs  %>
    <% @songs.each do |song| %>
+     
+   <div id="snippet"><br />
+     <table>
+     <tr>
+       <td>Title: <%= "#{song.title}" %></td>
+     </tr>
      <tr>
        <!-- td>< %= link_to "#{song.file.current_path}", song.file.current_path %></td -->
-       <td><%= link_to "#{song.file.url}", song.file.url %></td>
+       <td>Path: <%= link_to "#{song.file.url}", song.file.url %></td>
        <!-- td>< %= link_to 'Edit', edit_song_path(song) %></tdi -->
        <td><%= link_to 'Destroy', song, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
+     </tr>
+     </table><br />
+  </div>
   <% end %>
 <% end %>
 

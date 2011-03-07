@@ -14,5 +14,15 @@ Common Audio Files:
 .wav	WAVE Audio File
 .wma	Windows Media Audio File
 
-== 
+== Deploy notes
+
+Until now, to run locally comment out the following line into config.ru :
+
+   # use Rack::Static, :urls => ['/uploads'], :root => 'tmp' 
+
+To deploy & run on Heroku leave uncommented :
+
+   use Rack::Static, :urls => ['/uploads'], :root => 'tmp'
+ 
+Setting config.middleware.use Rack::Static, :urls => ['/uploads'], :root => 'tmp' into config/environments/production.rb, seems not working until now, I'll investigate ;-)
 

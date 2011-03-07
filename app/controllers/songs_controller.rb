@@ -8,6 +8,7 @@ class SongsController < ApplicationController
   end
 
   def new
+    @songs ||= @songs = Song.all
     @song = Song.new
   end
 
