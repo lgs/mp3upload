@@ -2,7 +2,8 @@
 
 A proof of concept application demonstrating cutting edge web technologies to upload audio file.
 
-Common Audio Files:
+Common Audio Files enabled to be loaded:
+
 .aac	Advanced Audio Coding File
 .aif	Audio Interchange File Format
 .iff	Interchange File Format
