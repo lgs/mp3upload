@@ -1,4 +1,5 @@
-== mp3upload
+mp3upload
+=========
 
 A proof of concept application demonstrating cutting edge web technologies to upload audio file.
 
@@ -15,7 +16,8 @@ Common Audio Files enabled to be loaded:
 .wav	WAVE Audio File
 .wma	Windows Media Audio File
 
-== Deploy notes
+Deploy notes
+------------
 
 Until now, to run locally comment out the following line into config.ru :
 
