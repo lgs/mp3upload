@@ -34,10 +34,21 @@ class FileUploader < CarrierWave::Uploader::Base
   # end
 
   # Add a white list of extensions which are allowed to be uploaded.
-  # For images you might use something like this:
-  # def extension_white_list
-  #   %w(jpg jpeg gif png)
-  # end
+  # For audio files, you might use something like this:
+  #
+  # .aac    Advanced Audio Coding File
+  # .aif    Audio Interchange File Format
+  # .iff    Interchange File Format
+  # .m3u    Media Playlist File
+  # .mid    MIDI File
+  # .mp3    MP3 Audio File
+  # .mpa    MPEG-2 Audio File
+  # .ra     Real Audio File
+  # .wav    WAVE Audio File
+  # .wma    Windows Media Audio File
+  def extension_white_list
+    %w(mp3 mid mpa ra wav wma m3u iff aif aac)
+  end
 
   # Override the filename of the uploaded files:
   # def filename
