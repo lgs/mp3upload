@@ -1,3 +1,40 @@
+Only the following audio files are enabled to be loaded:<br />
+.mp3 .aac .aif .iff .m3u .mid .mpa .ra .wav .wma
+
+<!-- h4>Common Audio Files enabled to be loaded:</h4>
+  <table>
+    <tr>
+      <td>.aac    Advanced Audio Coding File</td>
+    </tr>
+    <tr>
+      <td>.aif    Audio Interchange File Format</td>
+    </tr>
+    <tr>
+      <td>.iff    Interchange File Format</td>
+    </tr>
+    <tr>
+      <td>.m3u    Media Playlist File</td>
+    </tr>
+    <tr>
+      <td>.mid    MIDI File</td>
+    </tr>
+    <tr>
+      <td>.mp3    MP3 Audio File</td>
+    </tr>
+    <tr>
+      <td>.mpa    MPEG-2 Audio File</td>
+    </tr>
+    <tr>
+      <td>.ra     Real Audio File</td>
+    </tr>
+    <tr>
+      <td>.wav    WAVE Audio File</td>
+    </tr>
+    <tr>
+      <td>.wma    Windows Media Audio File</td>
+    </tr>
+   </table><br / -->
+
 <div id="filelist"></div>
 <br />
 
@@ -11,11 +48,12 @@
     <%= file_field_tag :file %>
     <!-- %= f.hidden_field :file_cache % -->
   </div>
-  <div class="actions" id="uploadfiles", href="#">
-    <%= submit_tag %>
+  <div class="actions">
+    <span id="uploadfiles", href="#"><%= submit_tag %></span>
     or
     <%= link_to 'Cancel', songs_path %>
   </div>
+  max_file_size : '10mb'
 <% end %>
 
 <%= render 'snippets' %>
