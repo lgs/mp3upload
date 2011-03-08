@@ -1,3 +1,31 @@
+List Of Audio File Formats Supported:
+.mp3 .aac .aif .iff .m3u .mid .mpa .ra .wav .wma
+
+<br />
+<div id="filelist"></div>
+<br />
+
+<%= form_tag songs_path, :multipart => true do %>
+  <div class="field">
+    <%= label_tag :title %>
+    <%= text_field_tag :title %>
+  </div>
+  <div class="field" id="pickfiles", href="#">
+    <%= label_tag :file %>
+    <%= file_field_tag :file %>
+    <!-- %= f.hidden_field :file_cache % -->
+  </div>
+  <div class="actions">
+    max_file_size : '10mb'<br>
+    <span id="uploadfiles", href="#"><%= submit_tag "Upload" %></span>
+    or
+    <%= link_to 'Cancel', songs_path %>
+  </div>
+<% end %>
+
+<!-- %= render 'snippets' % -->
+
+<script type="text/javascript">
 $(function(){
   var uploader = new plupload.Uploader({
     runtimes : "html5",
@@ -39,3 +67,4 @@ $(function(){
 
   uploader.init();
 });
+</script>
