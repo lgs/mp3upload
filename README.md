@@ -135,8 +135,13 @@ __A proof of concept application to upload audio files.__
 
 # Resources
 
-* Building an awesome asynchronous file uploader :
-  [http://shitzload.com/developer](http://shitzload.com/developer)
+* Building an awesome asynchronous file uploader :: [http://shitzload.com/developer](http://shitzload.com/developer)
+
+* XMLHttpRequest Level 2 :: [http://dev.w3.org/2006/webapi/XMLHttpRequest-2/Overview.html](http://dev.w3.org/2006/webapi/XMLHttpRequest-2/Overview.html)
+
+* Html5 File Upload with Progress :: [http://www.matlus.com/html5-file-upload-with-progress/](http://www.matlus.com/html5-file-upload-with-progress/)
+
+* HTML5-powered Ajax file uploads :: [http://blog.new-bamboo.co.uk/2010/7/30/html5-powered-ajax-file-uploads](http://blog.new-bamboo.co.uk/2010/7/30/html5-powered-ajax-file-uploads)
 
 * Building an HTML5 Drag & Drop File Uploader Using Sinatra and jQuery :
   [http://onehub.com/blog/posts/designing-an-html5-drag-drop-file-uploader-using-sinatra-and-jquery-part-1/](http://onehub.com/blog/posts/designing-an-html5-drag-drop-file-uploader-using-sinatra-and-jquery-part-1/)
