@@ -1,9 +1,14 @@
 # mp3upload
-__A proof of concept application to upload audio files.__
+
+A proof of concept application to upload audio files.
 
 ## Rails 3.0.5, Carrierwave, MongoID, Plupload
 
+... 
+
 ## Deployed on Heroku using Carrierwave caching with MongoHQ GridFS
+
+...
 
 ## List Of Audio File Formats Supported:
 
@@ -19,15 +24,14 @@ __A proof of concept application to upload audio files.__
 * .wma	Windows Media Audio File
 
 # Gemfile.lock
-
-## GIT
+GIT
   remote: http://github.com/jnicklas/carrierwave.git
   revision: 4251250c5295deb24817f698600ab29d7df0e7ae
   specs:
     carrierwave (0.5.2)
       activesupport (~> 3.0)
 
-## GEM
+GEM
   remote: http://rubygems.org/
   specs:
     abstract (1.0.0)
@@ -121,10 +125,10 @@ __A proof of concept application to upload audio files.__
     tzinfo (0.3.24)
     will_paginate (3.0.pre2)
 
-## PLATFORMS
+PLATFORMS
   ruby
 
-## DEPENDENCIES
+DEPENDENCIES
   bson
   bson_ext
   carrierwave!
@@ -154,6 +158,6 @@ __A proof of concept application to upload audio files.__
 * [http://www.theroamingcoder.com/node/50](http://www.theroamingcoder.com/node/50)
 * [http://gregorymazurek.com/2011/01/03/in-rails-pass-parameters-from-redirect_to-to-plupload-form/](http://gregorymazurek.com/2011/01/03/in-rails-pass-parameters-from-redirect_to-to-plupload-form/)
 
-* Using Carrierwave caching on heroku :: [http://rickenharp.posterous.com/using-carrierwave-caching-on-heroku]i(http://rickenharp.posterous.com/using-carrierwave-caching-on-heroku)
+* Using Carrierwave caching on heroku :: [http://rickenharp.posterous.com/using-carrierwave-caching-on-heroku](http://rickenharp.posterous.com/using-carrierwave-caching-on-heroku)
 
 * My on "upload" delicious tag :: [http://www.delicious.com/lgsicious/upload](http://www.delicious.com/lgsicious/upload)
