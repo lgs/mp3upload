@@ -1,5 +1,5 @@
 # mp3upload
-__A proof of concept application to upload audio files.
+__A proof of concept application to upload audio files.__
 
 ## Rails 3.0.5, Carrierwave, MongoID, Plupload
 
@@ -7,32 +7,27 @@ __A proof of concept application to upload audio files.
 
 ## List Of Audio File Formats Supported:
 
-.aac	Advanced Audio Coding File
-.aif	Audio Interchange File Format
-.iff	Interchange File Format
-.m3u	Media Playlist File
-.mid	MIDI File
-.mp3	MP3 Audio File
-.mpa	MPEG-2 Audio File
-.ra	Real Audio File
-.wav	WAVE Audio File
-.wma	Windows Media Audio File
-
-== Resources
-Using Carrierwave caching on heroku:
-[http://rickenharp.posterous.com/using-carrierwave-caching-on-heroku]i(http://rickenharp.posterous.com/using-carrierwave-caching-on-heroku)
-
+* .aac	Advanced Audio Coding File
+* .aif	Audio Interchange File Format
+* .iff	Interchange File Format
+* .m3u	Media Playlist File
+* .mid	MIDI File
+* .mp3	MP3 Audio File
+* .mpa	MPEG-2 Audio File
+* .ra	Real Audio File
+* .wav	WAVE Audio File
+* .wma	Windows Media Audio File
 
 # Gemfile.lock
 
-== GIT
+## GIT
   remote: http://github.com/jnicklas/carrierwave.git
   revision: 4251250c5295deb24817f698600ab29d7df0e7ae
   specs:
     carrierwave (0.5.2)
       activesupport (~> 3.0)
 
-== GEM
+## GEM
   remote: http://rubygems.org/
   specs:
     abstract (1.0.0)
@@ -126,10 +121,10 @@ Using Carrierwave caching on heroku:
     tzinfo (0.3.24)
     will_paginate (3.0.pre2)
 
-== PLATFORMS
+## PLATFORMS
   ruby
 
-== DEPENDENCIES
+## DEPENDENCIES
   bson
   bson_ext
   carrierwave!
@@ -138,4 +133,22 @@ Using Carrierwave caching on heroku:
   mongoid (>= 2.0.0.rc.7)
   rails (= 3.0.5)
 
+# Resources
 
+* Building an awesome asynchronous file uploader :
+  [http://shitzload.com/developer](http://shitzload.com/developer)
+
+* Building an HTML5 Drag & Drop File Uploader Using Sinatra and jQuery :
+  [http://onehub.com/blog/posts/designing-an-html5-drag-drop-file-uploader-using-sinatra-and-jquery-part-1/](http://onehub.com/blog/posts/designing-an-html5-drag-drop-file-uploader-using-sinatra-and-jquery-part-1/)
+
+* Jonas Nicklas :: [https://github.com/jnicklas/carrierwave](https://github.com/jnicklas/carrierwave)
+* Mark Mulder :: https://github.com/bittersweet :: [http://ikbenbitterzoet.com/2010/09/18/multiple-file-upload-with-plupload.html](http://ikbenbitterzoet.com/2010/09/18/multiple-file-upload-with-plupload.html)
+* Trevor Turk :: [http://github.com/trevorturk/kzak/](https://github.com/trevorturk/kzak/)
+* Rimas Silkaitis :: https://github.com/neovintage :: [http://neovintage.blogspot.com/2010/06/file-uploads-with-rails-3-plupload-and.html](http://neovintage.blogspot.com/2010/06/file-uploads-with-rails-3-plupload-and.html)
+
+* [http://www.theroamingcoder.com/node/50](http://www.theroamingcoder.com/node/50)
+* [http://gregorymazurek.com/2011/01/03/in-rails-pass-parameters-from-redirect_to-to-plupload-form/](http://gregorymazurek.com/2011/01/03/in-rails-pass-parameters-from-redirect_to-to-plupload-form/)
+
+* Using Carrierwave caching on heroku :: [http://rickenharp.posterous.com/using-carrierwave-caching-on-heroku]i(http://rickenharp.posterous.com/using-carrierwave-caching-on-heroku)
+
+* My on "upload" delicious tag :: [http://www.delicious.com/lgsicious/upload](http://www.delicious.com/lgsicious/upload)
