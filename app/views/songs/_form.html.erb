@@ -1,40 +1,7 @@
-Only the following audio files are enabled to be loaded:<br />
+List Of Audio File Formats Supported:
 .mp3 .aac .aif .iff .m3u .mid .mpa .ra .wav .wma
 
-<!-- h4>Common Audio Files enabled to be loaded:</h4>
-  <table>
-    <tr>
-      <td>.aac    Advanced Audio Coding File</td>
-    </tr>
-    <tr>
-      <td>.aif    Audio Interchange File Format</td>
-    </tr>
-    <tr>
-      <td>.iff    Interchange File Format</td>
-    </tr>
-    <tr>
-      <td>.m3u    Media Playlist File</td>
-    </tr>
-    <tr>
-      <td>.mid    MIDI File</td>
-    </tr>
-    <tr>
-      <td>.mp3    MP3 Audio File</td>
-    </tr>
-    <tr>
-      <td>.mpa    MPEG-2 Audio File</td>
-    </tr>
-    <tr>
-      <td>.ra     Real Audio File</td>
-    </tr>
-    <tr>
-      <td>.wav    WAVE Audio File</td>
-    </tr>
-    <tr>
-      <td>.wma    Windows Media Audio File</td>
-    </tr>
-   </table><br / -->
-
+<br />
 <div id="filelist"></div>
 <br />
 
@@ -49,53 +16,12 @@ Only the following audio files are enabled to be loaded:<br />
     <!-- %= f.hidden_field :file_cache % -->
   </div>
   <div class="actions">
-    <span id="uploadfiles", href="#"><%= submit_tag %></span>
+    max_file_size : '10mb'<br>
+    <span id="uploadfiles", href="#"><%= submit_tag "Upload" %></span>
     or
     <%= link_to 'Cancel', songs_path %>
   </div>
-  max_file_size : '10mb'
 <% end %>
 
 <%= render 'snippets' %>
 
-<script type="text/javascript">
-$(function(){
-  /*<input id="title" name="title" type="text" />*/
-  /*var title = $("input[name=title]").val();*/
-  var uploader = new plupload.Uploader({
-    runtimes : "html5",
-    browse_button : 'pickfiles',
-    max_file_size : '10mb',
-    url : "/songs",
-    multipart: true,
-    multipart_params: {
-     "authenticity_token" : '<%= form_authenticity_token %>'
-    }
-  });
-
-  uploader.bind('BeforeUpload', function(up, files) {
-    $.extend(up.settings.multipart_params, { title : $('#title').val() });
-  });
-
-  uploader.bind('FilesAdded', function(up, files) {
-    $.each(files, function(i, file) {
-      $('#filelist').append(
-        '<div id="' + file.id + '">' +
-        'File: ' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b>' +
-        '</div>'
-        );
-    });
-  });
-
-  uploader.bind('UploadProgress', function(up, file) {
-    $('#' + file.id + " b").html(file.percent + "%");
-  });
-
-  $('#uploadfiles').click(function(e) {
-    uploader.start();
-    e.preventDefault();
-  });
-
-  uploader.init();
-});
-</script>
