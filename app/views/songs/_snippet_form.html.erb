@@ -1,0 +1,6 @@
+<%= form_tag songs_path, :method => :put do %>
+    <%= label_tag :title %>
+    <%= text_field_tag :title, "#{@song.title}" %>
+    <%= submit_tag "save" %>
+<% end %>
+

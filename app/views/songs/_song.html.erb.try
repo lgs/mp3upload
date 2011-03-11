@@ -1,0 +1,34 @@
+<% if @songs  %>
+   <% @songs.each do |song| %>
+
+<!-- li :data => {:id => song.id, :upload_id => song.upload_id}!i -->
+<li>
+  <div class="title">
+    <label>Title:</label>
+    <span>
+      <%= song.title %>
+    </span>
+    <%= link_to "edit", "#", :class => "edit" %>
+  </div>
+  <div class="url">
+    <label>
+      <% if song.new_record? %>
+        Progress:
+      <% else %>
+        Url:
+      <% end %>
+    </label>
+    <span>
+      <%= link_to "#{song.file.url}", song.file.url if song.file? %>
+    </span>
+  </div>
+  <% unless song.new_record? %>
+    <%= link_to "delete", song_path(song), :method => :delete, :confirm => "Are you sure?", :class => "delete", :remote => true %>
+  <% else %>
+    <%= link_to "cancel", "#", :class => "cancel_upload" %>
+  <% end %>
+</li>
+
+  <% end %>
+<% end %>
+

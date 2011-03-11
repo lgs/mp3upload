@@ -1,19 +1,8 @@
 class SongsController < ApplicationController
-  def index
-    @songs = Song.all
-  end
-
-  def show
-    redirect_to root_path
-  end
-
-  def new
-    @songs ||= @songs = Song.all
-    @song = Song.new
-  end
+  before_filter :load
 
   def edit
-    @song = Song.find(params[:id])
+    # @song = Song.find(params[:id])
   end
 
   def create
@@ -33,7 +22,7 @@ class SongsController < ApplicationController
     if @song.update_attributes(params[:song])
       redirect_to(@song, :notice => 'Asset was successfully updated.')
     else
-      render :action => "edit"
+      render :action => "new"
     end
   end
 
@@ -41,6 +30,16 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
     @song.destroy
 
-    redirect_to(songs_url)
+    respond_to do |format|
+      format.js { render :json => {:name => 'John'} }
+    end
+    #redirect_to(songs_url)
   end
+
+  private
+  def load
+    @songs = Song.all
+    @song = Song.new
+  end
+
 end

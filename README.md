@@ -8,6 +8,20 @@ A proof of concept application to upload audio files.
 
 ## Deployed on Heroku using Carrierwave caching with MongoHQ GridFS
 
+### Until now, to run locally comment out the following line into config.ru :
+
+	# use Rack::Static, :urls => ['/uploads'], :root => 'tmp' 
+
+__To deploy & run on Heroku leave uncommented :__
+
+	use Rack::Static, :urls => ['/uploads'], :root => 'tmp'
+ 
+Setting config.middleware.use Rack::Static, :urls => ['/uploads'], :root => 'tmp' 
+into config/environments/production.rb, seems not working until now, I''ll investigate 
+
+
+## List Of Audio File Formats Supported:
+
 ...
 
 ## List Of Audio File Formats Supported:
