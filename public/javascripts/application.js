@@ -1,9 +1,9 @@
 /*$('a[data-method="delete"]').live('ajax:success', function(){})*/
-$('a[data-method="delete"]').live('ajax:success',
+/*$('a[data-method="delete"]').live('ajax:success',
   function(e, data, textStatus, jqXHR){
     alert(data.name + ' has been deleted');
   }
-);
+);*/
 
 $(function(){
   var uploader = new plupload.Uploader({

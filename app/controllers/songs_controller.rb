@@ -1,28 +1,47 @@
 class SongsController < ApplicationController
-  before_filter :load
+ 
+  def index
+    @songs = Song.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @songs }
+    end
+  end
 
   def edit
-    # @song = Song.find(params[:id])
+    @song = Song.find(params[:id])
+    @song.update_attributes(params[:title])
+
+    if @song.save
+      redirect_to(songs_url)
+    else
+      render :action => "index"
+    end
   end
 
   def create
     @song = Song.new(:title => params[:title])
     @song.file = params[:file]
-    if @song.save
-      redirect_to(songs_url)
-      #head 200
-    else
-      render :action => "new"
+
+    respond_to do |format|
+      if @song.save 
+        format.html { redirect_to(root_url, :notice => 'Song was successfully created.') }
+        format.xml  { render :xml => @songs, :status => :created, :location => @songs }
+      else
+        format.html { render :action => "index" }
+        format.xml  { render :xml => @songs.errors, :status => :unprocessable_entity }
+      end
     end
   end
 
   def update
     @song = Song.find(params[:id])
 
-    if @song.update_attributes(params[:song])
-      redirect_to(@song, :notice => 'Asset was successfully updated.')
+    if @song.update_attributes(params[:title])
+      redirect_to(@song, :notice => 'Song was successfully updated.')
     else
-      render :action => "new"
+      redirect_to(root_path)
     end
   end
 
@@ -31,15 +50,9 @@ class SongsController < ApplicationController
     @song.destroy
 
     respond_to do |format|
-      format.js { render :json => {:name => 'John'} }
+      format.html { redirect_to(root_url) }
+      format.xml  { head :ok }
     end
-    #redirect_to(songs_url)
-  end
-
-  private
-  def load
-    @songs = Song.all
-    @song = Song.new
   end
 
 end

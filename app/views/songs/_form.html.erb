@@ -13,16 +13,13 @@ List Of Audio File Formats Supported:
   <div class="field" id="pickfiles", href="#">
     <%= label_tag :file %>
     <%= file_field_tag :file %>
-    <!-- %= f.hidden_field :file_cache % -->
+    <%= hidden_field_tag :file_cache %>
   </div>
   <div class="actions">
     max_file_size : '10mb'<br>
-    <span id="uploadfiles", href="#"><%= submit_tag "Upload" %></span>
+    <span id="uploadfiles"><%= submit_tag "Upload" %></span>
     or
-    <%= link_to 'Cancel', new_song_path %>
+    <%= link_to 'Cancel', root_path %>
   </div>
 <% end %>
-
-<%= render 'snippets' %>
-<!-- %= render 'song' % -->
 
